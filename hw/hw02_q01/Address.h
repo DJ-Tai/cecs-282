@@ -1,9 +1,10 @@
-/*
- * Address.h
- *
- *  Created on: Feb 9, 2018
- *      Author: david
- */
+//============================================================================
+// Name        : Address.h
+// Author      : David Taitingfong
+// Version     :
+// Copyright   :
+// Description : Defines the necessary functions and instance variables for Address class
+//============================================================================
 
 #ifndef ADDRESS_H_
 #define ADDRESS_H_

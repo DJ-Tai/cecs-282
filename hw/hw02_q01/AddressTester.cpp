@@ -1,9 +1,9 @@
 //============================================================================
 // Name        : 282_hw02.cpp
-// Author      : David
+// Author      : David Taitingfong
 // Version     :
 // Copyright   : 
-// Description : Hello World in C++, Ansi-style
+// Description : Tester function for Address.cpp and Address.h
 //============================================================================
 
 #include "Address.h"
