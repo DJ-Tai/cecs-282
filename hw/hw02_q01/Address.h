@@ -1,8 +1,6 @@
 //============================================================================
 // Name        : Address.h
 // Author      : David Taitingfong
-// Version     :
-// Copyright   :
 // Description : Defines the necessary functions and instance variables for Address class
 //============================================================================
 

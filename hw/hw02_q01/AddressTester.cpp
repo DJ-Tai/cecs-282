@@ -1,8 +1,6 @@
 //============================================================================
 // Name        : 282_hw02.cpp
 // Author      : David Taitingfong
-// Version     :
-// Copyright   : 
 // Description : Tester function for Address.cpp and Address.h
 //============================================================================
 

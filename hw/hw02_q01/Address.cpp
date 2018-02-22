@@ -1,8 +1,6 @@
 //============================================================================
 // Name        : Address.cpp
 // Author      : David Taitingfong
-// Version     :
-// Copyright   :
 // Description : Details the Address class
 //============================================================================
 
