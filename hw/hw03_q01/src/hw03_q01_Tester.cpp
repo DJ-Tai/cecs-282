@@ -16,6 +16,7 @@
  */
 void initial_prompt()
 {
+	std::cout << "Enter a selection by #" << std::endl;
 	std::cout << "1. Add car" << std::endl;
 	std::cout << "2. Add person" << std::endl;
 	std::cout << "3. Finish" << std::endl;
