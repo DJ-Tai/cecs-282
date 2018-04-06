@@ -15,15 +15,23 @@
 class Shape
 {
 private:
+	// Instance variables
 	std::string color;
 	bool filled;
 
 public:
+	// Constructors & Destructor
 	Shape();
 	Shape(std::string new_color, bool is_filled);
+	virtual ~Shape();
 
-	std::string getColor();
-	bool isFilled();
+	// Getters
+	std::string getColor() const;
+	std::string isFilled();
+	virtual double getPerimeter() const;
+	virtual double getArea() const;
+
+	// Setters
 	void setColor(std::string clr);
 	void setFilled(bool fill);
 };

@@ -35,11 +35,21 @@ Triangle::Triangle(double s1, double s2, double s3)
 }
 
 /**
+ * Gets the Triangle's perimeter
+ *
+ * @return - The Triangle's perimeter
+ */
+double Triangle::getPerimeter() const
+{
+	return (double)(this->side1 + this->side2 + this->side3);
+}
+
+/**
  * Gets the Triangle's area using Heron's formula
  *
  * @return - The Triangle's area
  */
-double Triangle::getArea()
+double Triangle::getArea() const
 {
 	double s = (0.5) * this->getPerimeter();
 	double area = s * (s - this->side1) * (s - this->side2) * (s - this->side3);
@@ -49,13 +59,11 @@ double Triangle::getArea()
 }
 
 /**
- * Gets the Triangle's perimeter
- *
- * @return - The Triangle's perimeter
+ * Destructor
  */
-double Triangle::getPerimeter()
+Triangle::~Triangle()
 {
-	return (double)(this->side1 + this->side2 + this->side3);
+	std::cout<<"Deleting triangle\n";
 }
 
 /**
@@ -63,7 +71,7 @@ double Triangle::getPerimeter()
  *
  * @return - Side 1 of the Triangle
  */
-double Triangle::getSide1()
+double Triangle::getSide1() const
 {
 	return this->side1;
 }
@@ -73,7 +81,7 @@ double Triangle::getSide1()
  *
  * @return - Side 2 of the Triangle
  */
-double Triangle::getSide2()
+double Triangle::getSide2() const
 {
 	return this->side2;
 }
@@ -83,7 +91,7 @@ double Triangle::getSide2()
  *
  * @return - Side 3 of the Triangle
  */
-double Triangle::getSide3()
+double Triangle::getSide3() const
 {
 	return this->side3;
 }

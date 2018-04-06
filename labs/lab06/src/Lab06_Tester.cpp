@@ -19,7 +19,9 @@ int main()
 	//	2. Create the Triangle object
 	//	3. Display the area, perimeter, color, and whether it's filled or not
 
-	Triangle* triangle = NULL;
+	Shape* triangle = NULL;
+//	Triangle* triangle = NULL;
+
 	std::vector<double> sides;
 	double input;
 	std::string color;
@@ -27,29 +29,46 @@ int main()
 	bool done = false;
 	bool filled;
 
-	int i = 0;
+	int i;
 
 	std::cout << "Let's make a Triangle" << std::endl;
 
 	// Grab Triangle sides
-	while (i < 3)
+	while (!done)
 	{
-		std::cout << "Side " << i + 1 << ": ";
-		std::cin >> input;
-		std::cin.ignore();
-
-		if (std::cin.fail())
+		i = 0;
+		while (i < 3)
 		{
-			std::cout << "Invalid value" << std::endl;
+			std::cout << "Side " << i + 1 << ": ";
+			std::cin >> input;
+			std::cin.ignore();
+
+			if (std::cin.fail())
+			{
+				std::cout << "Invalid value\n";
+			}
+			else
+			{
+				sides.push_back(input);
+				i += 1;
+			}
+
+			std::cin.clear();
+			fflush(stdin);
+		}
+
+		if (sides[0] + sides[1] < sides[2] || sides[1] + sides[2] < sides[0]
+				|| sides[0] + sides[2] < sides[1])
+		{
+			std::cout
+					<< "Those values can't make a Triangle! Try again please\n\n";
+			// Clear inputs and reset i
+			sides.clear();
 		}
 		else
 		{
-			sides.push_back(input);
-			i += 1;
+			done = true;
 		}
-
-		std::cin.clear();
-		fflush(stdin);
 	}
 
 	// Grab color
@@ -57,6 +76,7 @@ int main()
 	std::cin >> color;
 
 	// Check if it's filled
+	done = false;
 	while (!done)
 	{
 		std::cout << "Is it filled? (Y/N): ";
@@ -89,6 +109,7 @@ int main()
 	std::cout << "Color: " << triangle->getColor() << std::endl;
 	std::cout << "Filled: " << triangle->isFilled() << std::endl;
 
+	std::cout << "\n";
 	delete triangle;	// Release memory
 
 	return 0;
