@@ -1,10 +1,7 @@
 //============================================================================
 // Name        : Lab07.cpp
-// Author      : david
+// Author      : David Taitingfong
 // Date        : Apr 6, 2018
-// Version     :
-// Copyright   : 
-// Description :
 //============================================================================
 #include <iostream>
 
