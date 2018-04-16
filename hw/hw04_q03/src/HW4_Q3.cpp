@@ -12,16 +12,22 @@ using namespace std;
 
 vector<string> generate_substrings(string s)
 {
-	vector<string> substrings;
+	vector<string>* substrings;
 
+	unsigned int ctr = 0;
 
+	while (ctr < s.length())
+	{
+		substrings->push_back(to_string(s[ctr]));
+		ctr++;
+	}
 
-	return substrings;
+	return *(substrings);
 }
 
 int main()
 {
-	cout << "yo" << endl;
+	vector<string> test = generate_substrings("rum");
 
 	return 0;
 }

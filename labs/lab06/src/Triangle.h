@@ -11,7 +11,6 @@
 #define SRC_TRIANGLE_H_
 
 #include "Shape.h"
-
 #include <iostream>
 
 class Triangle : public Shape

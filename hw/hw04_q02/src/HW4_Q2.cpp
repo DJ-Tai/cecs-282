@@ -79,11 +79,13 @@ int main()
 	rank = babyNameRank(stoi(year), gender, name);
 	if (rank != 0)
 	{
-		cout << name << " is ranked #" << rank << " in the year " << year << endl;
+		cout << name << " is ranked #" << rank << " in the year " << year
+				<< endl;
 	}
 	else
 	{
-		cout << "The name " << name << " is not ranked in the year " << year << endl;
+		cout << "The name " << name << " is not ranked in the year " << year
+				<< endl;
 	}
 
 	return 0;
