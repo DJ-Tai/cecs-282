@@ -25,7 +25,7 @@ Shape::Shape()
  * @param new_color - color of shape
  * @param is_filled - whether the shape is filled or not
  */
-Shape::Shape(std::string new_color, bool is_filled)
+Shape::Shape(string new_color, bool is_filled)
 {
 	color = new_color;
 	filled = is_filled;
@@ -36,7 +36,7 @@ Shape::Shape(std::string new_color, bool is_filled)
  */
 Shape::~Shape()
 {
-	std::cout<<"Deleting shape\n";
+	cout<<"Deleting shape\n";
 }
 
 /**
@@ -54,7 +54,7 @@ std::string Shape::getColor() const
  *
  * @return - True if the shape is filled with a color
  */
-std::string Shape::isFilled()
+string Shape::isFilled()
 {
 	if (this->filled) return "True";
 	return "False";
@@ -67,7 +67,7 @@ std::string Shape::isFilled()
  */
 double Shape::getPerimeter() const
 {
-	std::cout << "Perimeter is 0" << std::endl;
+	cout << "Perimeter is 0" << endl;
 	return 0;
 }
 
@@ -78,7 +78,7 @@ double Shape::getPerimeter() const
  */
 double Shape::getArea() const
 {
-	std::cout << "Area is 0" << std::endl;
+	cout << "Area is 0" << endl;
 	return 0;
 }
 
@@ -87,7 +87,7 @@ double Shape::getArea() const
  *
  * @param clr - Color to be set
  */
-void Shape::setColor(std::string clr)
+void Shape::setColor(string clr)
 {
 	this->color = clr;
 }

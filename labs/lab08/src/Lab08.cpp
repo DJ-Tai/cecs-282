@@ -17,42 +17,42 @@ class Iterator;
 // CLASS DEFINITIONS
 class Node
 {
-public:
-	Node(string s);
-private:
-	string data;
-	Node* previous;
-	Node* next;
-	friend class List;
-	friend class Iterator;
+	public:
+		Node(string s);
+	private:
+		string data;
+		Node* previous;
+		Node* next;
+		friend class List;
+		friend class Iterator;
 };
 
 class List
 {
-public:
-	List();
-	void push_back(string data);
-	void insert(Iterator iter, string s);
-	Iterator erase(Iterator iter);
-	Iterator begin();
-	Iterator end();
-private:
-	Node* first;
-	friend class Iterator;
+	public:
+		List();
+		void push_back(string data);
+		void insert(Iterator iter, string s);
+		Iterator erase(Iterator iter);
+		Iterator begin();
+		Iterator end();
+	private:
+		Node* first;
+		friend class Iterator;
 };
 
 class Iterator
 {
-public:
-	Iterator();
-	string get() const;
-	void next();
-	void previous();
-	bool equals(Iterator b) const;
-private:
-	Node* position;
-	List* container;
-	friend class List;
+	public:
+		Iterator();
+		string get() const;
+		void next();
+		void previous();
+		bool equals(Iterator b) const;
+	private:
+		Node* position;
+		List* container;
+		friend class List;
 };
 
 /**
@@ -257,7 +257,6 @@ int main()
 	List* staff = new List();
 	Iterator pos;
 
-
 	staff->push_back("Bruce");
 	staff->push_back("Richard");
 	staff->push_back("Jason");
@@ -271,6 +270,7 @@ int main()
 	cout << pos.get() << endl << endl;	// Get value AT the end
 
 	// Add a value in 4th place
+	cout << "Inserting Tim after Jason" << endl;
 	pos = staff->begin();
 	pos.next();
 	pos.next();
@@ -285,6 +285,7 @@ int main()
 	cout << pos.get() << endl << endl;
 
 	// Remove the value in second place
+	cout << "Removing Richard" << endl;
 	pos = staff->begin();
 	pos.next();
 	staff->erase(pos);

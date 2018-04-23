@@ -63,7 +63,7 @@ double Triangle::getArea() const
  */
 Triangle::~Triangle()
 {
-	std::cout<<"Deleting triangle\n";
+	cout<<"Deleting triangle\n";
 }
 
 /**

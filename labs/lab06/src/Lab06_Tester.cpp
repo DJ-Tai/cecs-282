@@ -2,7 +2,6 @@
 // Name        : Lab06_Tester.cpp
 // Author      : David Taitingfong
 // Date        : Mar 22, 2018
-// Description :
 //============================================================================
 
 #include "Triangle.h"
@@ -22,16 +21,16 @@ int main()
 	Shape* triangle = NULL;
 //	Triangle* triangle = NULL;
 
-	std::vector<double> sides;
+	vector<double> sides;
 	double input;
-	std::string color;
-	std::string reply;
+	string color;
+	string reply;
 	bool done = false;
 	bool filled;
 
 	int i;
 
-	std::cout << "Let's make a Triangle" << std::endl;
+	cout << "Let's make a Triangle" << endl;
 
 	// Grab Triangle sides
 	while (!done)
@@ -39,13 +38,13 @@ int main()
 		i = 0;
 		while (i < 3)
 		{
-			std::cout << "Side " << i + 1 << ": ";
-			std::cin >> input;
-			std::cin.ignore();
+			cout << "Side " << i + 1 << ": ";
+			cin >> input;
+			cin.ignore();
 
-			if (std::cin.fail())
+			if (cin.fail())
 			{
-				std::cout << "Invalid value\n";
+				cout << "Invalid value\n";
 			}
 			else
 			{
@@ -53,14 +52,14 @@ int main()
 				i += 1;
 			}
 
-			std::cin.clear();
+			cin.clear();
 			fflush(stdin);
 		}
 
 		if (sides[0] + sides[1] < sides[2] || sides[1] + sides[2] < sides[0]
 				|| sides[0] + sides[2] < sides[1])
 		{
-			std::cout
+			cout
 					<< "Those values can't make a Triangle! Try again please\n\n";
 			// Clear inputs and reset i
 			sides.clear();
@@ -72,15 +71,15 @@ int main()
 	}
 
 	// Grab color
-	std::cout << "Color: ";
-	std::cin >> color;
+	cout << "Color: ";
+	cin >> color;
 
 	// Check if it's filled
 	done = false;
 	while (!done)
 	{
-		std::cout << "Is it filled? (Y/N): ";
-		std::cin >> reply;
+		cout << "Is it filled? (Y/N): ";
+		cin >> reply;
 		if (reply[0] == 'Y' || reply[0] == 'y')
 		{
 			filled = true;
@@ -93,23 +92,23 @@ int main()
 		}
 		else
 		{
-			std::cout << "Invalid option" << std::endl;
+			cout << "Invalid option" << endl;
 		}
 
-		std::cin.clear();
+		cin.clear();
 		fflush(stdin);
 	}
 	triangle = new Triangle(sides[0], sides[1], sides[2]);
 	triangle->setColor(color);
 	triangle->setFilled(filled);
 
-	std::cout << "\nYour Triangle:" << std::endl;
-	std::cout << "Area: " << triangle->getArea() << std::endl;
-	std::cout << "Perimeter: " << triangle->getPerimeter() << std::endl;
-	std::cout << "Color: " << triangle->getColor() << std::endl;
-	std::cout << "Filled: " << triangle->isFilled() << std::endl;
+	cout << "\nYour Triangle:" << endl;
+	cout << "Area: " << triangle->getArea() << endl;
+	cout << "Perimeter: " << triangle->getPerimeter() << endl;
+	cout << "Color: " << triangle->getColor() << endl;
+	cout << "Filled: " << triangle->isFilled() << endl;
 
-	std::cout << "\n";
+	cout << "\n";
 	delete triangle;	// Release memory
 
 	return 0;
