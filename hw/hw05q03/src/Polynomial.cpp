@@ -1,23 +1,30 @@
 //============================================================================
 // Name        : Polynomial.cpp
-// Author      : David Taitingfong
-// Date        : Apr 20, 2018
+// Author      : david
+// Date        : Apr 23, 2018
+// Version     :
+// Copyright   : 
+// Description :
 //============================================================================
 
 #include "Polynomial.h"
 #include <cassert>
 
+Term::Term()
+{
+	base = 0;
+	power = 0;
+	next = NULL;
+}
+
 /**
- * Default constructor
- *
- * @param b - Base of term
- * @param p - Power of term
+ * Custom constructor
  */
 Term::Term(int b, int p)
 {
-	this->base = b;
-	this->power = p;
-	this->next = NULL;
+	base = b;
+	power = p;
+	next = NULL;
 }
 
 /**
@@ -26,121 +33,109 @@ Term::Term(int b, int p)
 Term::~Term()
 {
 	this->next = NULL;
-	cout << "deleting Term" << endl;
 }
 
-/**
- * Default constructor
- */
 Polynomial::Polynomial()
 {
-	this->first = NULL;
+	first = NULL;
 }
 
 /**
  * Custom constructor
- *
- * @param new_term - Polynomial term
  */
-Polynomial::Polynomial(Term* new_term)
+Polynomial::Polynomial(Term new_term)
 {
-	this->first = new_term;
+	first = new Term(new_term);
 }
 
-/**
- * Destructor
- */
-Polynomial::~Polynomial()
+void Polynomial::add(Polynomial to_add)
 {
-	// TODO Auto-generated destructor stub
-}
+	Term* new_term = to_add.first;
 
-/**
- * Adds a new single Polynomial term to the current Polynomial
- *
- * @param to_add - Polynomial being added
- */
-void Polynomial::add(Polynomial* to_add)
-{
-	if (first == NULL)
+	if (first == NULL)	// Polynomial is blank
 	{
-		first = to_add->first;
+		first = new_term;
+		first->next = NULL;
 	}
 	else
 	{
 		Term* check = first;
 
-		if (to_add->first->power < check->power)
+		if (new_term->power < check->power)
 		{
 			// Add after first & find correct position
-			while (to_add->first->power < check->next->power)
+			while (check->next != NULL && new_term->power < check->next->power)
 			{
-				check = check->next;
+				check = check->next;	// Move the pointer
 			}
 
-			// Check if a term of the same power exists
-			if (to_add->first->power == check->next->power)
+			if (new_term->power == check->power)
 			{
-				check->next->base += to_add->first->base;
+				// Terms are of the same power
+				check->base += new_term->base;
+			}
+			else if (check->next != NULL && new_term->power == check->next->power)
+			{
+				// The next term is of the same power
+				check->next->base += new_term->base;
 			}
 			else
 			{
-				to_add->first->next = check->next;
-				check->next = to_add->first;
+				// The previous term is a higher power, but the next one is a lower power
+				new_term->next = check->next;
+				check->next = new_term;
 			}
 		}
-		else if (to_add->first->power == check->power)
+		else if (new_term->power == check->power)
 		{
 			// Term being added has the same power
-			check->base += to_add->first->base;
+			check->base += new_term->base;
 		}
 		else
 		{
-			// Add before first, i.e., it has the highest power
-			to_add->first->next = check;
-			this->first = to_add->first;
+			// Add before first, i.e., it has the highest power so far
+			new_term->next = check;
+			this->first = new_term;
 		}
 	}
 }
 
-/**
- * Multiplies 2 Polynomials
- */
-Polynomial* Polynomial::multiply(Polynomial* p)
+Polynomial Polynomial::multiply(Polynomial p)
 {
-	Polynomial* new_poly = new Polynomial;
-	Term* check = first;
-	Term* p_check;
-	Term* product;
+	Polynomial poly_prod;
 
-	// This Polynomial
-	while (check->next->next != NULL)
+	Term* check = this->first;
+	Term* p_check;
+//	Term term_prod;
+
+	while (check != NULL)
 	{
-		p_check = p->first;
+		p_check = p.first;
 
 		// p Polynomial
-		while (p_check->next->next != NULL)
+		while (p_check != NULL)
 		{
 			// Create a new Term
-			product = new Term(check->base * p_check->base,
-					check->power + p_check->power);
+			Term term_prod(check->base * p_check->base, check->power + p_check->power);
 
-			// Add to the new Polynomial
-			new_poly->add(new Polynomial(product));
+			// Add to the Polynomial
+			poly_prod.add(Polynomial(term_prod));
 
-			// Go to next Term in p Polynomial
 			p_check = p_check->next;
 		}
 
 		check = check->next;
 	}
 
-	return new_poly;
+	return poly_prod;
 }
 
+/**
+ * Math format for displaying a Polynomial
+ */
 void Polynomial::print()
 {
-	Term* print = this->first;
+	Term* print = first;
 
 	cout << print->base << "x^" << print->power << " ";
 
@@ -162,5 +157,4 @@ void Polynomial::print()
 			cout << "x^" << print->power << " ";
 		}
 	}
-
 }

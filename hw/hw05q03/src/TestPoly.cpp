@@ -4,22 +4,22 @@
 // Date        : Apr 20, 2018
 //============================================================================
 
+#include "PolynomialB.h"
 #include "Polynomial.h"
 
 int main()
 {
-	Polynomial* p = new Polynomial(new Term(10,0));
-	p->add(new Polynomial(new Term(10, 1)));
-	p->print();
-	cout << endl;
+	Polynomial p (Term(-10, 0));
+	p.add(Polynomial(Term(-1,1)));
+	p.add(Polynomial(Term(9, 7)));
+	p.add(Polynomial(Term(5, 10)));
+	cout << "p: ";
+	p.print();
 
-	p->add(new Polynomial(new Term(-5, 3)));
-	p->print();
-	cout << endl;
-
-	p->add(new Polynomial(new Term(-2, 2)));
-	p->print();
-	cout << endl;
+	cout << "\n\n";
+	Polynomial q = p.multiply(p);
+	cout << "q: ";
+	q.print();
 
 
 
