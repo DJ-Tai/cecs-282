@@ -4,7 +4,6 @@
 // Date        : Apr 20, 2018
 //============================================================================
 
-#include "PolynomialB.h"
 #include "Polynomial.h"
 
 int main()

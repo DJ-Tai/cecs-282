@@ -108,6 +108,8 @@ void BinarySearchTree::erase(string data)
    // Neither subtree is empty
 
    // Find smallest element of the right subtree
+   // Replace the node with its smallest right descendant
+   // This successor is the very next larger value
 
    TreeNode* smallest_parent = to_be_removed;
    TreeNode* smallest = to_be_removed->right;
@@ -162,8 +164,6 @@ string BinarySearchTree::smallest() const
 
 	return smallest;
 }
-
-
 
 
 /**

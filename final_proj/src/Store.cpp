@@ -20,8 +20,42 @@ Store::Store()
 	this->fax_num = "";
 }
 
+/**
+ * Custom constructor
+ */
 Store::Store(string n, string a, string pn, string fn)
 {
+	this->name = n;
+	this->address = a;
+	this->phone_num = pn;
+	this->fax_num = fn;
+}
 
+/**
+ * Destructor
+ */
+Store::~Store()
+{
+	cout << "Deleting store" << "\n";
+}
+
+string Store::get_name() const
+{
+	return this->name;
+}
+
+string Store::get_address() const
+{
+	return this->address;
+}
+
+string Store::get_phone() const
+{
+	return this->phone_num;
+}
+
+string Store::get_fax() const
+{
+	return this->fax_num;
 }
 
