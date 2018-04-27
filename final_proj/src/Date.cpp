@@ -44,7 +44,7 @@ Date::Date(int m, int d, int y)
  */
 Date::~Date()
 {
-	// Empty
+	cout << "Deleting date" << "\n";
 }
 
 /**
@@ -72,7 +72,9 @@ int Date::get_year() const
 }
 
 /**
- * @param m - Month to set, received as a January
+ * Sets the Month of the Date
+ *
+ * @param m - Month to set, received as an int
  */
 void Date::set_month(int m)
 {
@@ -88,6 +90,11 @@ void Date::set_month(int m)
 	}
 }
 
+/**
+ * Sets the Day of the Date
+ *
+ * @param d - Day to be set, received as an int
+ */
 void Date::set_day(int d)
 {
 	static int length[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -103,8 +110,14 @@ void Date::set_day(int d)
 	}
 }
 
+/**
+ * Sets the Year of the Date
+ *
+ * @param y - Year to be set, received as an int
+ */
 void Date::set_year(int y)
 {
+	assert(y < 32767 && y > -32767); // int range
 	if (y < 1900)
 	{
 		cout << "These printers probably weren't around in " << y << endl;

@@ -39,9 +39,6 @@ Item::Item(string n, int q, double p)
 
 Item::~Item()
 {
-	this->name = NULL;
 	// TODO: Is setting primitives to NULL okay?
-	this->price = NULL;
-	this->qty = NULL;
 }
 
