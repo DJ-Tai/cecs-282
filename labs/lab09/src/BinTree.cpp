@@ -260,11 +260,5 @@ int main()
 	t2.insert("25");
 	cout << t2.smallest() << "\n";
 
-
-
-
-
-
-
 	return 0;
 }
