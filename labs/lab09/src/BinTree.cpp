@@ -250,7 +250,8 @@ int main()
 	t.insert("F");
 	t.insert("E");
 	t.insert("A");
-	cout << t.smallest() << "\n";
+	t.print();
+	cout << t.smallest() << "\n\n";
 
 	// Smallest is the root
 	BinarySearchTree t2;
@@ -258,6 +259,7 @@ int main()
 	t2.insert("30");
 	t2.insert("29");
 	t2.insert("25");
+	t2.print();
 	cout << t2.smallest() << "\n";
 
 	return 0;
