@@ -2,9 +2,9 @@
 // Name        : Circle.cpp
 // Author      : David Taitingfong
 // Date        : Apr 27, 2018
-// Version     :
-// Copyright   : 
-// Description :
+// Version     : 1.0
+// Copyright   : N/A
+// Description : Circle class
 //============================================================================
 
 #include "Circle.h"
@@ -71,3 +71,55 @@ double Circle::get_area() const
 	return area;
 }
 
+void Circle::print()
+{
+	cout << this->c_radius << "\n";
+}
+
+/**
+ * Overload less-than operator
+ */
+bool Circle::operator <(const Circle& right)
+{
+	return this->c_radius < right.c_radius;
+}
+
+/**
+ * Overload the less-than-or-equal operator
+ */
+bool Circle::operator <=(const Circle& right)
+{
+	return this->c_radius <= right.c_radius;
+}
+
+/**
+ * Overload the equals operator
+ */
+bool Circle::operator ==(const Circle& right)
+{
+	return this->c_radius == right.c_radius;
+}
+
+/**
+ * Overload the not-equal operator
+ */
+bool Circle::operator !=(const Circle& right)
+{
+	return this->c_radius != right.c_radius;
+}
+
+/**
+ * Overload the greater-than operator
+ */
+bool Circle::operator >(const Circle& right)
+{
+	return this->c_radius > right.c_radius;
+}
+
+/**
+ * Overload the greater-than-or-equal operator
+ */
+bool Circle::operator >=(const Circle& right)
+{
+	return this->c_radius >= right.c_radius;
+}

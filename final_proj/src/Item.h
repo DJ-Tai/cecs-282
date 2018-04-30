@@ -32,7 +32,6 @@ class Item
 		string name;
 		int qty;		// TODO: Technically, the store keeps track of quantity?
 		double price;
-		// TODO:: ec ? Category
 };
 
 #endif /* SRC_ITEM_H_ */

@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 class Date
@@ -29,6 +30,7 @@ class Date
 		int month;
 		int day;
 		int year;
+
 };
 
 #endif /* SRC_DATE_H_ */

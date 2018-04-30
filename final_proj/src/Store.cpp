@@ -8,6 +8,7 @@
 //============================================================================
 
 #include "Store.h"
+#include "Date.h"
 
 /**
  * Default constuctor
@@ -18,6 +19,7 @@ Store::Store()
 	this->address = "";
 	this->phone_num = "";
 	this->fax_num = "";
+	this->new_purchase = NULL;
 }
 
 /**
@@ -29,6 +31,7 @@ Store::Store(string n, string a, string pn, string fn)
 	this->address = a;
 	this->phone_num = pn;
 	this->fax_num = fn;
+	this->new_purchase = NULL;
 }
 
 /**
@@ -36,7 +39,7 @@ Store::Store(string n, string a, string pn, string fn)
  */
 Store::~Store()
 {
-	cout << "Deleting store" << "\n";
+	cout << "deleting store" << "\n";
 }
 
 string Store::get_name() const
@@ -59,3 +62,20 @@ string Store::get_fax() const
 	return this->fax_num;
 }
 
+void Store::start_purchase()
+{
+	Receipt* new_receipt;
+
+	if (this->new_purchase != NULL)
+	{
+		// Delete current receipt when starting a new purchase
+		new_receipt = this->new_purchase;
+		delete(new_receipt);
+	}
+
+	new_receipt = new Receipt();
+	new_receipt->store = this;
+	new_receipt->purchased = new Date(4, 29, 2018);
+
+	this->new_purchase = new_receipt;
+}

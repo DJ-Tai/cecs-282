@@ -15,8 +15,8 @@
  */
 Receipt::Receipt()
 {
-	this->store = NULL;
-	this->purchased = NULL;
+	store = NULL;
+	purchased = NULL;
 }
 
 /**
@@ -24,8 +24,10 @@ Receipt::Receipt()
  */
 Receipt::~Receipt()
 {
-	this->store = NULL;
-	this->purchased = NULL;
+	store = NULL;
+	purchased = NULL;
+
+	cout << "deleting receipt" << "\n";
 }
 
 /**

@@ -12,6 +12,10 @@
 
 #include <iostream>
 #include <string>
+
+#include "Receipt.h"
+class Receipt;
+
 using namespace std;
 
 
@@ -27,11 +31,16 @@ class Store
 		string get_phone() const;
 		string get_fax() const;
 
+		void start_purchase();
+
 	private:
 		string name;
 		string address;
 		string phone_num;
 		string fax_num;
+		Receipt* new_purchase;
+
+	friend class Receipt;
 };
 
 

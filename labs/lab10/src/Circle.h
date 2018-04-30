@@ -22,6 +22,17 @@ class Circle
 		double get_radius() const;
 		void set_radius(double v_radius);
 		double get_area() const;
+		void print();
+
+		// Relational Operator Overloads
+		// (< , <= , == , != , > , >= )
+		bool operator<(const Circle& right);
+		bool operator<=(const Circle& right);
+		bool operator==(const Circle& right);
+		bool operator!=(const Circle& right);
+		bool operator>(const Circle& right);
+		bool operator>=(const Circle& right);
+
 	private:
 		double c_radius;
 };
