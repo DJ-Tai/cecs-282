@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : Store.cpp
 // Author      : David Taitingfong
+//				 Evan Pascual
 // Date        : Apr 16, 2018
 // Version     : 1.0
 // Copyright   : 
@@ -17,6 +18,7 @@
  */
 Store::Store()
 {
+	this->state_tax = 8.0;
 	this->name = "";
 	this->address = "";
 	this->phone_num = "";
@@ -32,8 +34,9 @@ Store::Store()
  * @param pn - Store phone number
  * @param fn - Store fax number
  */
-Store::Store(string n, string a, string pn, string fn)
+Store::Store(double st, string n, string a, string pn, string fn)
 {
+	this->state_tax = st;
 	this->name = n;
 	this->address = a;
 	this->phone_num = pn;
@@ -69,6 +72,9 @@ string Store::get_fax() const
 	return this->fax_num;
 }
 
+/**
+ * Starts a new purchase. Overrides the current active purchase if there is one.
+ */
 void Store::start_purchase()
 {
 	Receipt* new_receipt;
@@ -87,22 +93,44 @@ void Store::start_purchase()
 	this->new_purchase = new_receipt;
 }
 
+/**
+ * Prints the Receipt for the current purchase
+ */
 void Store::print_receipt()
 {
 	Receipt* store_receipt = this->new_purchase;
 	cout << "\n" << this->get_name() << "\n";
 	cout << "\n";
 
-	cout << setw(20) << left << "NAME";
+	// Receipt headers
+	cout << setw(30) << left << "ITEM";
 	cout << setw(5) << right << "QTY";
-	cout << setw(8) << right << "PRICE";
+	cout << setw(10) << right << "PRICE";
 	cout << "\n";
-	cout << setfill('-') << setw(34) << "-" << "\n" << setfill(' ');
+	cout << setfill('-') << setw(45) << "-" << "\n" << setfill(' ');
+
+	// List items out
 	for (unsigned int i = 0; i < store_receipt->items.size(); i++)
 	{
-		cout << setw(20) << left << store_receipt->items.at(i)->get_name();
-		cout << setw(5) << right << store_receipt->items.at(i)->get_qty();
-		cout << setw(8) << right << store_receipt->items.at(i)->get_price();
+		int item_count = store_receipt->items.at(i)->get_qty();
+		double single_price = 0.0;
+		double qty_price = 0.0;
+
+		// Item name
+		cout << setw(30) << left << store_receipt->items.at(i)->get_name();
+
+		// Item quantity
+		cout << setw(5) << right << item_count;
+
+		// Item price
+		single_price = store_receipt->items.at(i)->get_price();
+		qty_price = item_count * single_price;
+		cout << setw(10) << right << qty_price;
+		if (item_count > 1)
+		{
+			cout << "\n" << setw(30) << "@ " << single_price << " ea";
+		}
+
 		cout << "\n";
 	}
 }

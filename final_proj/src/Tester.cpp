@@ -36,7 +36,7 @@
 
 int main()
 {
-	Store target ("Target", "Address",
+	Store target (8.0, "Target", "Address",
 				  "123-456-7890", "123-456-0987");
 	Receipt* store_receipt;
 
@@ -46,10 +46,14 @@ int main()
 
 	Item item01("Water", 4, 2.99);
 	Item item02("Blood Oranges", 4, 1.99);
+	Item item03("Water", 5, 2.99);
+	Item item04("Toaster", 1, 14.99);
 	cout << "items created" << "\n";
 
 	store_receipt->add_item(item01);
 	store_receipt->add_item(item02);
+	store_receipt->add_item(item03);
+	store_receipt->add_item(item04);
 	cout << "item added" << "\n";
 
 	target.print_receipt();

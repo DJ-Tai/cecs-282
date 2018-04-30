@@ -25,8 +25,8 @@ class Item
 		int get_qty() const;
 		double get_price() const;
 
-		void set_qty();
-		void set_price();
+		void set_qty(int new_qty);
+		void set_price(double new_price);
 
 	private:
 		string name;

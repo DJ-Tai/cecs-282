@@ -37,9 +37,11 @@ Item::Item(string n, int q, double p)
 	else this->price = p;
 }
 
+/**
+ * Destructor
+ */
 Item::~Item()
 {
-	// TODO: Is setting primitives to NULL okay?
 	cout << "deleting item" << "\n";
 }
 
@@ -56,4 +58,19 @@ int Item::get_qty() const
 double Item::get_price() const
 {
 	return this->price;
+}
+
+/**
+ * Sets the Items quantity on the Receipt
+ *
+ * @param new_qty - Quantity to be set
+ */
+void Item::set_qty(int new_qty)
+{
+	this->qty = new_qty;
+}
+
+void Item::set_price(double new_price)
+{
+	this->price = new_price;
 }

@@ -23,7 +23,7 @@ class Store
 {
 	public:
 		Store();
-		Store(string n, string a, string pn, string fn);
+		Store(double st, string n, string a, string pn, string fn);
 		~Store();
 
 		string get_name() const;
@@ -37,10 +37,13 @@ class Store
 		Receipt* access_receipt();
 
 	private:
+		double state_tax;
+
 		string name;
 		string address;
 		string phone_num;
 		string fax_num;
+
 		Receipt* new_purchase;
 
 	friend class Receipt;

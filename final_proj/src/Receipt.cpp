@@ -21,13 +21,32 @@ Receipt::Receipt()
 
 /**
  * Destructor
+ *
+ * NOTE: Items and Store get deleted off Stack
  */
 Receipt::~Receipt()
 {
-	store = NULL;
-	purchased = NULL;
+	// Delete Date reference
+	Date* del_date;
+	del_date = this->purchased;
+	delete(del_date);
+
+	this->purchased = NULL;
+	this->store = NULL;
 
 	cout << "deleting receipt" << "\n";
+}
+
+/**
+ * Sets the Date on the Receipt
+ *
+ * @param current - Date being set on Receipt
+ */
+void Receipt::set_date(Date current)
+{
+	Date* date = &current;
+
+	this->purchased = date;
 }
 
 /**
@@ -37,5 +56,30 @@ Receipt::~Receipt()
  */
 void Receipt::add_item(Item new_item)
 {
-	items.push_back(&new_item);
+	Item* adding;
+	bool found = false;
+
+	for (unsigned int i = 0; i < this->items.size(); i++)
+	{
+		adding = this->items.at(i);
+
+		if (adding->get_name() == new_item.get_name())
+		{
+			int new_qty = adding->get_qty() + new_item.get_qty();
+			adding->set_qty(new_qty);
+			found = true;
+		}
+
+		if (found)	// Break out of for-loop
+		{
+			i = this->items.size();
+		}
+	}
+
+	// Add the item if it wasn't on the Receipt
+	if (!found)
+	{
+		items.push_back(&new_item);
+	}
+
 }

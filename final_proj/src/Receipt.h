@@ -24,6 +24,8 @@ class Receipt
 	public:
 		Receipt();
 		~Receipt();
+
+		void set_date(Date current);
 		void add_item(Item new_item);
 
 	private:
