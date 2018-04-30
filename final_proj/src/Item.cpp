@@ -40,5 +40,20 @@ Item::Item(string n, int q, double p)
 Item::~Item()
 {
 	// TODO: Is setting primitives to NULL okay?
+	cout << "deleting item" << "\n";
 }
 
+string Item::get_name() const
+{
+	return this->name;
+}
+
+int Item::get_qty() const
+{
+	return this->qty;
+}
+
+double Item::get_price() const
+{
+	return this->price;
+}

@@ -38,9 +38,23 @@ int main()
 {
 	Store target ("Target", "Address",
 				  "123-456-7890", "123-456-0987");
-	// First purchase
-	target.start_purchase();
+	Receipt* store_receipt;
 
+	// First purchase
+	target.start_purchase();	// Creates the receipt
+	store_receipt = target.access_receipt();
+
+	Item item01("Water", 4, 2.99);
+	Item item02("Blood Oranges", 4, 1.99);
+	cout << "items created" << "\n";
+
+	store_receipt->add_item(item01);
+	store_receipt->add_item(item02);
+	cout << "item added" << "\n";
+
+	target.print_receipt();
+
+	cout << "\nstarting new purchase" << "\n\n";
 
 	// Second purchase
 	target.start_purchase();

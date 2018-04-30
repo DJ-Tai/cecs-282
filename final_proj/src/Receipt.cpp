@@ -31,10 +31,11 @@ Receipt::~Receipt()
 }
 
 /**
- * Displays the receipt
+ * Adds an item to the Receipt
+ *
+ * @param new_item - Item being added to the Receipt
  */
-void Receipt::display()
+void Receipt::add_item(Item new_item)
 {
-	// TODO
+	items.push_back(&new_item);
 }
-

@@ -1,8 +1,9 @@
 //============================================================================
 // Name        : Receipt.h
 // Author      : David Taitingfong
+//				 Evan Pascual
 // Date        : Apr 16, 2018
-// Version     :
+// Version     : 1.0
 // Copyright   : 
 // Description :
 //============================================================================
@@ -11,30 +12,26 @@
 #define SRC_RECEIPT_H_
 
 #include "Date.h"
+#include "Item.h"
 //#include "Store.h"
+#include <vector>
+#include <string>
 
 class Store;
 
 class Receipt
 {
 	public:
-		// TODO:
 		Receipt();
 		~Receipt();
-		void display();
-
-
-//	protected:
-//		Store* store;
-//		Date* purchased;
+		void add_item(Item new_item);
 
 	private:
-		// TODO:
+		vector<Item*> items;
 		Store* store;
 		Date* purchased;
 
 	friend class Store;
-
 };
 
 #endif /* SRC_RECEIPT_H_ */

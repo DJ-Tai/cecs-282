@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : Store.h
 // Author      : David Taitingfong
+//				 Evan Pascual
 // Date        : Apr 16, 2018
 // Version     :
 // Copyright   : 
@@ -14,10 +15,9 @@
 #include <string>
 
 #include "Receipt.h"
-class Receipt;
+//class Receipt;
 
 using namespace std;
-
 
 class Store
 {
@@ -32,6 +32,9 @@ class Store
 		string get_fax() const;
 
 		void start_purchase();
+		void print_receipt();
+
+		Receipt* access_receipt();
 
 	private:
 		string name;

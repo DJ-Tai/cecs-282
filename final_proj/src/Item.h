@@ -30,7 +30,7 @@ class Item
 
 	private:
 		string name;
-		int qty;		// TODO: Technically, the store keeps track of quantity?
+		int qty;
 		double price;
 };
 
