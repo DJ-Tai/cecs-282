@@ -34,16 +34,8 @@ Circle::Circle(double v_radius)
  */
 Circle::~Circle()
 {
-	cout << "deleting circle" << "\n";
 }
 
-/**
- * Gets the radius of the circle
- */
-double Circle::get_radius() const
-{
-	return this->c_radius;
-}
 
 /**
  * Sets a new radius for the Circle
@@ -62,7 +54,19 @@ void Circle::set_radius(double v_radius)
 }
 
 /**
+ * Get the Circle's radius
+ *
+ * @return - Radius as a double
+ */
+double Circle::radius() const
+{
+	return this->c_radius;
+}
+
+/**
  * Gets the area of the circle
+ *
+ * @return - Area as a double
  */
 double Circle::get_area() const
 {
@@ -71,55 +75,61 @@ double Circle::get_area() const
 	return area;
 }
 
-void Circle::print()
-{
-	cout << this->c_radius << "\n";
-}
 
+
+
+// --------------------- NON-MEMBER FUNCTIONS ------------------ //
 /**
  * Overload less-than operator
  */
-bool Circle::operator <(const Circle& right)
+bool operator< (const Circle& left, const Circle& right)
 {
-	return this->c_radius < right.c_radius;
+	return left.radius() < right.radius();
 }
 
 /**
  * Overload the less-than-or-equal operator
  */
-bool Circle::operator <=(const Circle& right)
+bool operator<= (const Circle& left, const Circle& right)
 {
-	return this->c_radius <= right.c_radius;
+	return left.radius() <= right.radius();
 }
 
 /**
  * Overload the equals operator
  */
-bool Circle::operator ==(const Circle& right)
+bool operator== (const Circle& left, const Circle& right)
 {
-	return this->c_radius == right.c_radius;
+	return left.radius() == right.radius();
 }
 
 /**
  * Overload the not-equal operator
  */
-bool Circle::operator !=(const Circle& right)
+bool operator!= (const Circle& left, const Circle& right)
 {
-	return this->c_radius != right.c_radius;
+	return left.radius() != right.radius();
 }
 
 /**
  * Overload the greater-than operator
  */
-bool Circle::operator >(const Circle& right)
+bool operator> (const Circle& left, const Circle& right)
 {
-	return this->c_radius > right.c_radius;
+	return left.radius() > right.radius();
 }
 
 /**
  * Overload the greater-than-or-equal operator
  */
-bool Circle::operator >=(const Circle& right)
+bool operator>= (const Circle& left, const Circle& right)
 {
-	return this->c_radius >= right.c_radius;
+	return left.radius() >= right.radius();
+}
+
+ostream& operator<< (ostream& out, const Circle& value)
+{
+    out << value.radius();
+
+    return out;
 }
