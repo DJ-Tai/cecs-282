@@ -32,19 +32,29 @@ Set::~Set()
 void Set::add(int n)
 {
 	// TODO: Add n to *elements
+	/**
+	 * if (!contains(n))
+	 * 		add
+	 * 		size += 1;
+	 */
 }
 
 bool Set::contains(int n) const
 {
+	bool found = false;
 	// TODO: finish
+	/**
+	 * while ptr < size && !found
+	 * 		check for ele
+	 * 		if ele == at(i)
+	 * 			found = true
+	 */
 
-	return true;
+	return found;
 }
 
 int Set::get_size() const
 {
-	// TODO: finish
-
-	return 0;
+	return size;
 }
 

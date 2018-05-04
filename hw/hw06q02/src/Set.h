@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : Set.h
-// Author      : david
+// Author      : David Taitingfong
 // Date        : May 2, 2018
 // Version     :
 // Copyright   : 
