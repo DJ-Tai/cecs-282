@@ -1,10 +1,7 @@
 //============================================================================
 // Name        : Set.cpp
-// Author      : david
+// Author      : David Taitingfong
 // Date        : May 4, 2018
-// Version     :
-// Copyright   : 
-// Description :
 //============================================================================
 
 #include "Set.h"
@@ -31,7 +28,22 @@ Set::Set(const Set& right)
 	elements = new int[right.size];
 
 	elements = right.elements;
+	*elements = *right.elements;
 	size = right.size;
+}
+
+/**
+ * Copy constructor
+ *
+ * @param right - Set being copied
+ */
+Set::Set(const Set* right)
+{
+	elements = new int[right->size];
+
+	elements = right->elements;
+	*elements = *right->elements;
+	size = right->size;
 }
 
 /**
@@ -132,7 +144,7 @@ Set& Set::operator=(const Set& right)
 }
 
 /**
- * Custom ostream
+ * Custom ostream for Sets created statically
  */
 ostream& operator<<(ostream& out, const Set& value)
 {
@@ -154,3 +166,25 @@ ostream& operator<<(ostream& out, const Set& value)
 	return out;
 }
 
+/**
+ * Custom ostream for Sets created dynamically
+ */
+ostream& operator<<(ostream& out, const Set* value)
+{
+	int* eles = value->get_elements();
+
+		out << "(";
+
+		for (int i = 0; i < value->get_size(); i++)
+		{
+			out << eles[i];
+			if (i != value->get_size() - 1)
+			{
+				out << ", ";
+			}
+		}
+
+		out << ")";
+
+		return out;
+}

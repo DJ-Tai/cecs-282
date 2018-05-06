@@ -15,6 +15,7 @@ class Set
 public:
 	Set();
 	Set(const Set& right);
+	Set(const Set* right);
 	virtual ~Set();
 
 	void add(int n);
@@ -25,12 +26,15 @@ public:
 
 	Set& operator= (const Set& right);
 
+	friend ostream& operator<< (ostream& out, const Set& value);
+	friend ostream& operator<< (ostream& out, const Set* value);
+
 private:
 	int* elements;
 	int size;
 
 };
 
-ostream& operator<< (ostream& out, const Set& value);
+//ostream& operator<< (ostream& out, const Set& value);
 
 #endif /* SET_H_ */
