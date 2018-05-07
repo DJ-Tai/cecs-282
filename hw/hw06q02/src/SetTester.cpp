@@ -1,10 +1,7 @@
 //============================================================================
 // Name        : SetTester.cpp
-// Author      : david
+// Author      : David Taitingfong
 // Date        : May 4, 2018
-// Version     :
-// Copyright   : 
-// Description :
 //============================================================================
 
 #include "Set.h"
@@ -17,8 +14,6 @@ int main()
 	cout << "A: " << set_a << "\n";
 
 	set_a.add(5);
-	set_a.add(10);
-	set_a.add(15);
 
 	Set set_b = set_a;
 	Set set_c(set_a);

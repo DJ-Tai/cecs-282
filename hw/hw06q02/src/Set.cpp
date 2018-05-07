@@ -53,6 +53,7 @@ Set::~Set()
 {
 	delete[] elements;
 	elements = NULL;
+	delete elements;
 }
 
 /**
