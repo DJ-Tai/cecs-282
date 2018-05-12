@@ -11,16 +11,15 @@
 using namespace std;
 
 vector<string> generate_subsets(string s);
-vector<string> get_subsets(string s);
 
 vector<string> subsets;
 
 int main()
 {
-	string my_string = "rusty";
+	string my_string = "rum";
 	cout << "word: " << my_string.substr(0, my_string.length()) << endl;
 
-	subsets = get_subsets(my_string);
+	subsets = generate_subsets(my_string);
 
 	for (unsigned int i = 0; i < subsets.size(); i++)
 	{
@@ -30,7 +29,7 @@ int main()
 	return 0;
 }
 
-vector<string> get_subsets(string s)
+vector<string> generate_subsets(string s)
 {
 	string left;
 	string right;
@@ -62,7 +61,7 @@ vector<string> get_subsets(string s)
 
 		}
 		string rem = s.substr(1, s.length() - 1);
-		subsets = get_subsets(rem);
+		subsets = generate_subsets(rem);
 	}
 	else if (s.length() == 1)
 	{
@@ -76,37 +75,3 @@ vector<string> get_subsets(string s)
 
 	return subsets;
 }
-
-vector<string> generate_subsets(string s)
-{
-	if (s.length() < 1)
-	{
-		subsets.push_back("_");
-		return subsets;
-	}
-	else
-	{
-		for (unsigned int j = 0; j < s.length(); j++)
-		{
-			string left;
-			string right;
-
-			left = s.substr(0, s.length() - j);
-
-			if ((s.length() - j + 1) > s.length())
-			{
-				right = s.substr(s.length() - j, j);
-			}
-			else
-			{
-				right = s.substr(s.length() - j + 1, j);
-			}
-			subsets.push_back(left + right);
-		}
-
-		generate_subsets(s.substr(1, s.length()));
-	}
-
-	return subsets;
-}
-
